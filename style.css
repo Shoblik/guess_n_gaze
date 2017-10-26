@@ -62,5 +62,7 @@ body {
     transition: .8s;
     background-image: url(images/zion_bend.jpg);
     background-position: 53% 4%;
+    /*background-position: 70% 4%;*/
+    /*background-position: 53% 0%;*/
 }
 
