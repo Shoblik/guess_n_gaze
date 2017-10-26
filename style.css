@@ -44,15 +44,23 @@ h2 {
     opacity: 1;
     z-index: 1;
 }
-/*h1 {*/
-    /*position: absolute;*/
-    /*top: 30%;*/
-    /*left: 50%;*/
-    /*transform: translate(-50%,-50%);*/
-    /*z-index: -2;*/
-    /*opacity: .5;*/
-/*}*/
+
 body {
     background: url('http://www.planwallpaper.com/static/images/518079-background-hd.jpg');
     background-position: center;
+    overflow: hidden;
 }
+.circleDiv {
+    padding-top: 10%;
+    width: 10%;
+    height: auto;
+    border-radius: 100%;
+    position: absolute;
+    top: 50vh;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: .8s;
+    background-image: url(images/zion_bend.jpg);
+    background-position: 53% 4%;
+}
+
