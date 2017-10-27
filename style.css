@@ -67,5 +67,12 @@ body {
     background-position: center;
 }
 .replay {
+    display: none;
     margin: 10px auto;
+    box-shadow: none;
+    border: none;
+    background-color: darkturquoise;
+    color: white;
+    padding: 10px;
+    font-size: 1.5rem;
 }
