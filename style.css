@@ -51,8 +51,8 @@ body {
     overflow: hidden;
 }
 .circleDiv {
-    padding-top: 10%;
-    width: 10%;
+    padding-top: 0%;
+    width: 0%;
     height: auto;
     border-radius: 100%;
     position: absolute;
@@ -64,5 +64,6 @@ body {
     background-position: 53% 4%;
     /*background-position: 70% 4%;*/
     /*background-position: 53% 0%;*/
+    /*background-position: center;*/
 }
 

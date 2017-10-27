@@ -13,19 +13,9 @@
             $('#make_guess').on('click', make_guess);
 
             //////////////////////////////////////////////
-            $('body').on('click', function() {
 
-                var getSize = $('.circleDiv').width() / $('body').width() * 100;
 
-                var newSize = Math.round(getSize).toFixed(0);
 
-                newSize = (Number(newSize) + 10) + '%';
-
-                $('.circleDiv').css({
-                    'padding-top': newSize,
-                    'width': newSize,
-                });
-            });
             /////////////////////////////////////////////////
 
             $("#guess_input").keyup(function(event) {
@@ -54,9 +44,25 @@
                 else if (the_guess == the_number) {
                     $('#response_div').html('<h2>You guessed it!</h2>');
                     $('.backgroundImg').css('opacity', '.9');
+                    $('.circleDiv').css({
+                        'padding-top': "120%",
+                        'width': '120%'
+                    });
                     return;
                 }
+                var difference = the_guess - the_number;
+                if (difference < 0) {
+                    difference = difference * -1;
+                }
             }
+            difference = 10 - difference;
+
+            var newSize = ((difference * 7) + '%');
+
+            $('.circleDiv').css({
+                'padding-top': newSize,
+                'width': newSize
+            });
         }
 
 
