@@ -8,9 +8,12 @@
     <link rel="stylesheet" href="style.css">
     <script>
         var the_number = null;
+        var imgArray = ['images/yosemite_background.jpg','https://i.pinimg.com/originals/1e/3a/e5/1e3ae5d5de9c8e38b5409fa22357f938.jpg','images/j_tree_landscape.jpg','images/landscape_from_j_tree.jpg','images/orange_lake.jpg','images/glacier_mtn_park.jpg'];
+
 
         $(document).ready(function() {
             $('#make_guess').on('click', make_guess);
+
 
             $("#guess_input").keyup(function(event) {
                 if (event.keyCode === 13) {
@@ -21,6 +24,9 @@
         })
 
         function pick_number() {
+            //Choose image
+            var randomNum = Math.floor(Math.random() * imgArray.length);
+            $('.circleDiv').css('background-image', 'url'+ '('+imgArray[randomNum]+')');
             the_number = Math.floor((Math.random() * 8) + 1);
             console.log(the_number);
             return the_number;
