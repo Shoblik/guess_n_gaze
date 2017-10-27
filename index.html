@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <script>
         var the_number = null;
-        var imgArray = ['images/yosemite_background.jpg','https://i.pinimg.com/originals/1e/3a/e5/1e3ae5d5de9c8e38b5409fa22357f938.jpg','images/j_tree_landscape.jpg','images/landscape_from_j_tree.jpg','images/orange_lake.jpg','images/glacier_mtn_park.jpg'];
+        var imgArray = ['images/yosemite_background.jpg','images/j_tree_landscape.jpg','images/landscape_from_j_tree.jpg','images/orange_lake.jpg','images/glacier_mtn_park.jpg'];
 
 
         $(document).ready(function() {
@@ -29,6 +29,7 @@
             $('.circleDiv').css({
                 'width': '0%',
                 'padding-top': '0%',
+                'border-radius': '100%'
             });
             //close the play button once clicked
             $('.replay').css('display','none');
@@ -54,9 +55,11 @@
                     $('#response_div').html('<h2>You guessed it!</h2>');
                     $('.backgroundImg').css('opacity', '.9');
                     $('.circleDiv').css({
-                        'padding-top': "70%",
-                        'width': '300%',
-                        'background-position': '50% 0%',
+//                        'width': '300%',
+                        'background-position': 'center',
+                        'border-radius': '0',
+                        'margin-top': "0",
+                        'width': '100vw',
                         'transition': '1s'
                     });
                     $('.replay').css({

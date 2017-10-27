@@ -59,17 +59,12 @@ body {
     transform: translate(-50%,-50%);
     transition: .8s;
     background-image: url('images/zion_bend.jpg');
-    /*background-image: url('images/yosemite_background.jpg');*/
-    /*background-image: url('https://i.pinimg.com/originals/1e/3a/e5/1e3ae5d5de9c8e38b5409fa22357f938.jpg');*/
-    /*!*background-image: url('images/j_tree_landscape.jpg');*! probably not on this one unless I postition each image individially*/
-    /*background-image: url('images/landscape_from_j_tree.jpg'); also probably not this one, same reason*/
-    /*background-image: url('images/orange_lake.jpg');*/
-    /*background-image: url('images/glacier_mtn_park.jpg');*/
-    background-position: 53% 4%;
+
+    /*background-position: 53% 4%;*/
 
     /*background-position: 70% 4%;*/
     /*background-position: 53% 0%;*/
-    /*background-position: center;*/
+    background-position: center;
 }
 .replay {
     margin: 10px auto;
