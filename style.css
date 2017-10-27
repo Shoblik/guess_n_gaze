@@ -1,6 +1,4 @@
-* {
-    margin: 0 !important;
-}
+
 .wrapper {
     height: 250px;
     width: 300px;
@@ -60,7 +58,7 @@ body {
     left: 50%;
     transform: translate(-50%,-50%);
     transition: .8s;
-    /*background-image: url('images/zion_bend.jpg');*/
+    background-image: url('images/zion_bend.jpg');
     /*background-image: url('images/yosemite_background.jpg');*/
     /*background-image: url('https://i.pinimg.com/originals/1e/3a/e5/1e3ae5d5de9c8e38b5409fa22357f938.jpg');*/
     /*!*background-image: url('images/j_tree_landscape.jpg');*! probably not on this one unless I postition each image individially*/
@@ -73,4 +71,6 @@ body {
     /*background-position: 53% 0%;*/
     /*background-position: center;*/
 }
-
+.replay {
+    margin: 10px auto;
+}
