@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="style.css">
     <script>
         var the_number = null;
-
-
         var imgArray = ['images/yosemite_background.jpg','images/j_tree_landscape.jpg','images/landscape_from_j_tree.jpg','images/orange_lake.jpg','images/glacier_mtn_park.jpg'];
 
 
@@ -21,7 +19,7 @@
 
 
             $("body").keyup(function(event) {
-                if (event.keyCode === 13 && $('.replay').css('display') == 'block') {
+                if (event.keyCode === 13 && $('.replay').css('display') === 'block') {
                     $(".replay").click();
                 }
             });
@@ -68,7 +66,10 @@
             $('#instructions').hide();
             var the_guess = $('#guess_input').val();
             if (the_guess != '') {
-                if (the_guess > the_number) {
+                if (the_guess < 1 || the_guess > 10) {
+                    $('#response_div').html('<h2>Choose a number between 1-10</h2>');
+                }
+                else if (the_guess > the_number) {
                     $('#response_div').html('<h2>That guess is too high</h2>');
                 }
                 else if (the_guess < the_number) {
