@@ -41,9 +41,16 @@
             //Choose image
             var randomNum = Math.floor(Math.random() * imgArray.length);
             $('.circleDiv').css('background-image', 'url'+ '('+imgArray[randomNum]+')');
+
+            imgArray.splice(randomNum, 1);
+
+            console.log(imgArray);
+            console.log(randomNum);
+
+
             //Choose a number to be guessed
             the_number = Math.floor((Math.random() * 8) + 1);
-            console.log(the_number);
+//            console.log(the_number);
             return the_number;
         }
         function make_guess() {
