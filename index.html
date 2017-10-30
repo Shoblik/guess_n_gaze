@@ -12,6 +12,7 @@
 
 
         $(document).ready(function() {
+
             $('#make_guess').on('click', make_guess);
             $('.replay').on('click', pick_number);
 
@@ -26,11 +27,14 @@
 
         function pick_number() {
             //close the current circle div for the start of a new game
+            $('#response_div').html(`<h2>Pick a number</h2>`)
             $('.circleDiv').css({
                 'width': '0%',
                 'padding-top': '0%',
                 'border-radius': '100%',
-                'height': 'auto'
+                'height': 'auto',
+                'background-position': '53% 0%',
+                'transition': '.8s'
             });
             //close the play button once clicked
             $('.replay').css('display','none');
@@ -62,7 +66,7 @@
                         'margin-top': "0",
                         'width': '100vw',
                         'height': '100%',
-                        'transition': '1s'
+                        'transition': '.6s'
                     });
                     $('.replay').css({
                         'display':'block',
@@ -96,9 +100,9 @@
     <!---->
     <div class="circleDiv"></div>
         <div class="wrapper">
-            <div id="response_div"><h2>pick a number</h2></div>
+            <div id="response_div"><h2>Pick a number</h2></div>
             <input type='text' id='guess_input' placeholder="Enter number">
-            <button class="replay">play again</button>
+            <button class="replay">Play again</button>
         </div>
 </div>
 </body>
