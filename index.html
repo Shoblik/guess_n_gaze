@@ -20,9 +20,9 @@
             $('.replay').on('click', pick_number);
 
 
-            $("#guess_input").keyup(function(event) {
-                if (event.keyCode === 13) {
-                    $("#make_guess").click();
+            $("body").keyup(function(event) {
+                if (event.keyCode === 13 && $('.replay').css('display') == 'block') {
+                    $(".replay").click();
                 }
             });
             $('#guess_input').on('input', make_guess)
