@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="style.css">
     <script>
         var the_number = null;
+
+
         var imgArray = ['images/yosemite_background.jpg','images/j_tree_landscape.jpg','images/landscape_from_j_tree.jpg','images/orange_lake.jpg','images/glacier_mtn_park.jpg'];
+
 
 
         $(document).ready(function() {
@@ -39,17 +42,25 @@
             //close the play button once clicked
             $('.replay').css('display','none');
             //Choose image
+
+
             var randomNum = Math.floor(Math.random() * imgArray.length);
             $('.circleDiv').css('background-image', 'url'+ '('+imgArray[randomNum]+')');
 
             imgArray.splice(randomNum, 1);
+            if (imgArray.length === 0) {
+                var images = ['images/yosemite_background.jpg','images/j_tree_landscape.jpg','images/landscape_from_j_tree.jpg','images/orange_lake.jpg','images/glacier_mtn_park.jpg'];
+                imgArray = images;
+
+            }
 
             console.log(imgArray);
-            console.log(randomNum);
+
 
 
             //Choose a number to be guessed
             the_number = Math.floor((Math.random() * 8) + 1);
+            console.log(the_number);
 //            console.log(the_number);
             return the_number;
         }
