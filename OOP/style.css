@@ -75,3 +75,27 @@ body {
     padding: 10px;
     font-size: 1.5rem;
 }
+.rightColumn {
+    text-align: center;
+    width: 10vw;
+    height: 100vh;
+    /*background-color: rgba(0,0,0, .6);*/
+    position: absolute;
+    left: 100%;
+    transform: translateX(-100%);
+    bottom: 0;
+}
+.numberDiv {
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 10px 0;
+    animation: infinite-spinning 4s linear infinite;
+}
+@keyframes infinite-spinning {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
