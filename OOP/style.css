@@ -96,7 +96,6 @@ body {
     background-position: center;
     margin: 10px 0;
     animation: infinite-spinning 4s linear infinite;
-    vertical-align: middle;
 }
 .languageContainer {
     width: 100%;

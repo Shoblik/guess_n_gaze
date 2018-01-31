@@ -7,25 +7,9 @@ $(document).ready(function() {
         }
     });
     $('.replay').on('click', controller.reset.bind(controller));
+    $('#langInput').on('change', controller.langInputHandler);
+
 });
-
-let imgArray = ['../images/yosemite_background.jpg','../images/j_tree_landscape.jpg','../images/landscape_from_j_tree.jpg','../images/orange_lake.jpg','../images/glacier_mtn_park.jpg'];
-const statements = {
-    english: {
-        instructions: `Pick a number 1-10`,
-        low: `too low!`,
-        equals: `you got it!`,
-        high: `too high!`,
-    },
-    czech: {
-        instructions: `Vyber cislo mezi 1-10`,
-        low: `moc malo!`,
-        equals: `uhadl si to!`,
-        high: `moc vysoko!`
-    }
-}
-let currentLanguage = `english`;
-
 let controller = {
     theDifference: function() {
         let difference = model.theGuess - model.theNumber;
@@ -42,23 +26,47 @@ let controller = {
     changeImage: function() {
         view.resetView();
         setTimeout(() => {
-            let randomNum = Math.floor(Math.random() * imgArray.length);
+            let randomNum = Math.floor(Math.random() * model.imgArray.length);
             $('.circleDiv').css({
-                'background-image': `url(${imgArray[randomNum]})`,
+                'background-image': `url(${model.imgArray[randomNum]})`,
             });
-            imgArray.splice(randomNum, 1);
-            if (imgArray.length === 0) {
+            model.imgArray.splice(randomNum, 1);
+            if (model.imgArray.length === 0) {
                 let images = ['../images/yosemite_background.jpg','../images/j_tree_landscape.jpg','../images/landscape_from_j_tree.jpg','../images/orange_lake.jpg','../images/glacier_mtn_park.jpg'];
-                imgArray = images;
+                model.imgArray = images;
 
             }
         }, 1000);
+    },
+    langInputHandler: function() {
+        let newLang = $('#langInput').val();
+        model.currentLanguage = newLang;
+        switch(model.modalText) {
+            case null:
+                view.resetView();
+                break;
+            case 'out':
+                view.guessOutOfRange();
+                break;
+            case 'found':
+                view.userGuessedIt();
+                break;
+            case 'high':
+                view.guessTooHigh();
+                break;
+            case 'low':
+                view.guessTooLow();
+                break;
+        }
     }
 };
 
 let model = {
     theNumber: null,
     theGuess: null,
+    currentLanguage: `english`,
+    modalText: null,
+    imgArray: ['../images/yosemite_background.jpg','../images/j_tree_landscape.jpg','../images/landscape_from_j_tree.jpg','../images/orange_lake.jpg','../images/glacier_mtn_park.jpg'],
     pickNumber: function () {
         this.theNumber = Math.floor((Math.random() * 8) + 1);
     },
@@ -73,33 +81,37 @@ let model = {
             if (this.theGuess < 1 || this.theGuess > 10) {
                 view.guessOutOfRange();
                 view.circleSize();
+                model.modelText = 'out';
             }
             else if (this.theGuess > this.theNumber) {
                 view.guessTooHigh();
                 view.circleSize();
+                model.modalText = 'high';
             }
             else if (this.theGuess < this.theNumber) {
                 view.guessTooLow();
                 view.circleSize();
+                model.modalText = 'low'
             }
             else if (this.theGuess == this.theNumber) {
                 view.userGuessedIt();
+                model.modalText = 'found'
             }
         }
     }
 }
 let view = {
     guessTooHigh: function() {
-        $('#response_div').html(`<h2>${statements[currentLanguage].high}</h2>`);
+        $('#response_div').html(`<h2>${view.statements[model.currentLanguage].high}</h2>`);
     },
     guessTooLow: function() {
-        $('#response_div').html(`<h2>${statements[currentLanguage].low}</h2>`);
+        $('#response_div').html(`<h2>${view.statements[model.currentLanguage].low}</h2>`);
     },
     guessOutOfRange: function() {
-        $('#response_div').html(`<h2>${statements[currentLanguage].instructions}</h2>`);
+        $('#response_div').html(`<h2>${view.statements[model.currentLanguage].instructions}</h2>`);
     },
     userGuessedIt: function() {
-        $('#response_div').html(`<h2>${statements[currentLanguage].equals}</h2>`);
+        $('#response_div').html(`<h2>${view.statements[model.currentLanguage].equals}</h2>`);
         $('.backgroundImg').css('opacity', '1');
         $('.circleDiv').css({
             'width': '300%',
@@ -122,7 +134,8 @@ let view = {
         })
     },
     resetView: function() {
-        $('#response_div').html(`<h2>${statements[currentLanguage].instructions}</h2>`);
+        model.modalText = null;
+        $('#response_div').html(`<h2>${view.statements[model.currentLanguage].instructions}</h2>`);
         $('.circleDiv').css({
             'width': '0%',
             'padding-top': '0%',
@@ -146,6 +159,68 @@ let view = {
     },
     clearInput: function() {
         $('#guess_input').val('');
+    },
+    statements: {
+        english: {
+            instructions: `Pick a number 1-10`,
+            low: `too low!`,
+            equals: `you got it!`,
+            high: `too high!`,
+        },
+        czech: {
+            instructions: `Vyberte číslo 1-10`,
+            low: `moc malo!`,
+            equals: `uhadl jsi to!`,
+            high: `moc vysoko!`
+        },
+        spanish: {
+            instructions: ``,
+            low: ``,
+            equals: ``,
+            high: ``
+        },
+        chinese: {
+            instructions: ``,
+            low: ``,
+            equals: ``,
+            high: ``
+        },
+        mandarin: {
+            instructions: ``,
+            low: ``,
+            equals: ``,
+            high: ``
+        },
+        russian: {
+            instructions: ``,
+            low: ``,
+            equals: ``,
+            high: ``
+        },
+        french: {
+            instructions: ``,
+            low: ``,
+            equals: ``,
+            high: ``
+        },
+        portuguese: {
+            instructions: ``,
+            low: ``,
+            equals: ``,
+            high: ``
+        },
+        japanese: {
+            instructions: ``,
+            low: ``,
+            equals: ``,
+            high: ``
+        },
+        gibberish: {
+            instructions: ``,
+            low: ``,
+            equals: ``,
+            high: ``
+        },
     }
 }
 
