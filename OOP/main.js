@@ -43,7 +43,7 @@ let controller = {
         model.currentLanguage = newLang;
         switch(model.modalText) {
             case null:
-                view.resetView();
+                view.guessOutOfRange();
                 break;
             case 'out':
                 view.guessOutOfRange();
@@ -174,52 +174,46 @@ let view = {
             high: `moc vysoko!`
         },
         spanish: {
-            instructions: ``,
-            low: ``,
-            equals: ``,
-            high: ``
+            instructions: `Elija un número 1-10`,
+            low: `¡demasiado baja!`,
+            equals: `¡lo tienes!`,
+            high: `¡demasiado alto!`
         },
         chinese: {
-            instructions: ``,
-            low: ``,
-            equals: ``,
-            high: ``
+            instructions: `选一个数字1-10`,
+            low: `太低！`,
+            equals: `你说对了！`,
+            high: `太高！`
         },
-        mandarin: {
-            instructions: ``,
-            low: ``,
-            equals: ``,
-            high: ``
+        norwegian: {
+            instructions: `Velg et nummer 1-10`,
+            low: `for lavt!`,
+            equals: `du har det!`,
+            high: `for høy!`
         },
         russian: {
-            instructions: ``,
-            low: ``,
-            equals: ``,
-            high: ``
+            instructions: `Выберите номер 1-10`,
+            low: `слишком низко!`,
+            equals: `Ты понял!`,
+            high: `слишком высоко!`
         },
         french: {
-            instructions: ``,
-            low: ``,
-            equals: ``,
-            high: ``
+            instructions: `Choisissez un numéro 1-10`,
+            low: `trop bas!`,
+            equals: `tu l'as eu!`,
+            high: `trop haut!`
         },
         portuguese: {
-            instructions: ``,
-            low: ``,
-            equals: ``,
-            high: ``
+            instructions: `Escolha um número 1-10`,
+            low: `muito baixo!`,
+            equals: `você entendeu!`,
+            high: `muito alto!`
         },
         japanese: {
-            instructions: ``,
-            low: ``,
-            equals: ``,
-            high: ``
-        },
-        gibberish: {
-            instructions: ``,
-            low: ``,
-            equals: ``,
-            high: ``
+            instructions: `1〜10の数字を選ぶ`,
+            low: `低すぎる！`,
+            equals: `あなたはそれを持っています！`,
+            high: `高すぎる！`
         },
     }
 }
