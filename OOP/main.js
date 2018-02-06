@@ -66,7 +66,7 @@ let model = {
     theGuess: null,
     currentLanguage: `english`,
     modalText: null,
-    imgArray: ['../images/yosemite_background.jpg','../images/j_tree_landscape.jpg','../images/landscape_from_j_tree.jpg','../images/orange_lake.jpg','../images/glacier_mtn_park.jpg'],
+    imgArray: ['../images/yosemite_background.jpg','../images/landscape_city.jpg', '../images/venice.jpg','../images/j_tree_landscape.jpg','../images/landscape_from_j_tree.jpg','../images/orange_lake.jpg','../images/glacier_mtn_park.jpg'],
     pickNumber: function () {
         this.theNumber = Math.floor((Math.random() * 8) + 1);
     },
@@ -114,7 +114,6 @@ let view = {
         $('#response_div').html(`<h2>${view.statements[model.currentLanguage].equals}</h2>`);
         $('.backgroundImg').css('opacity', '1');
         $('.circleDiv').css({
-            'width': '300%',
             'background-position': 'center',
             'border-radius': '0',
             'margin-top': "0",
@@ -149,13 +148,16 @@ let view = {
     },
     historyColumn: function(userGuess) {
         console.log('user guess ', userGuess);
-        let numberDiv = $('<div>').css({
-            height: '80px',
-            width: '100%',
-            backgroundImage: 'url(../images/'+ userGuess +'_0.svg)',
-        }).addClass('numberDiv');
-        console.log('url(../images/'+ userGuess +'.svg)');
-        $('.rightColumn').prepend(numberDiv);
+        let userGuessStr = userGuess.toString();
+        if (userGuess > 1 && userGuess <= 10 && userGuessStr.split('.').length === 1) {
+            let numberDiv = $('<div>').css({
+                height: '80px',
+                width: '100%',
+                backgroundImage: 'url(../images/'+ userGuess +'_0.svg)',
+            }).addClass('numberDiv');
+            console.log('url(../images/'+ userGuess +'.svg)');
+            $('.rightColumn').prepend(numberDiv);
+        }
     },
     clearInput: function() {
         $('#guess_input').val('');
@@ -215,6 +217,12 @@ let view = {
             equals: `あなたはそれを持っています！`,
             high: `高すぎる！`
         },
+        italian: {
+            instructions: `Scegli un numero 1-10`,
+            low: `troppo basso!`,
+            equals: `avete capito bene!`,
+            high: `troppo alto!`
+        }
     }
 };
 
