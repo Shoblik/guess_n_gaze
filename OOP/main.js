@@ -41,6 +41,8 @@ let controller = {
     langInputHandler: function() {
         let newLang = $('#langInput').val();
         model.currentLanguage = newLang;
+        $('#guess_input').attr('placeholder', view.statements[model.currentLanguage].placeholder);
+        $('.langSelectPrompt').text(view.statements[model.currentLanguage].languageSelect);
         switch(model.modalText) {
             case null:
                 view.guessOutOfRange();
@@ -168,60 +170,80 @@ let view = {
             low: `too low!`,
             equals: `you got it!`,
             high: `too high!`,
+            placeholder: `Enter Number`,
+            languageSelect: `Select your language`
         },
         czech: {
             instructions: `Vyberte číslo 1-10`,
             low: `moc malo!`,
             equals: `uhadl jsi to!`,
-            high: `moc vysoko!`
+            high: `moc vysoko!`,
+            placeholder: `Vložte číslo`,
+            languageSelect: `Vyberte svůj jazyk`
         },
         spanish: {
             instructions: `Elija un número 1-10`,
             low: `¡demasiado baja!`,
             equals: `¡lo tienes!`,
-            high: `¡demasiado alto!`
+            high: `¡demasiado alto!`,
+            placeholder: `Ingresar número`,
+            languageSelect: `Elige tu idioma`
         },
         chinese: {
             instructions: `选一个数字1-10`,
             low: `太低！`,
             equals: `你说对了！`,
-            high: `太高！`
+            high: `太高！`,
+            placeholder: `输入号码`,
+            languageSelect: `选择你的语言`
         },
         norwegian: {
             instructions: `Velg et nummer 1-10`,
             low: `for lavt!`,
             equals: `du har det!`,
-            high: `for høy!`
+            high: `for høy!`,
+            placeholder: `Skriv inn nummeret`,
+            languageSelect: `Velg ditt språk`
         },
         russian: {
             instructions: `Выберите номер 1-10`,
             low: `слишком низко!`,
             equals: `Ты понял!`,
-            high: `слишком высоко!`
+            high: `слишком высоко!`,
+            placeholder: `Введите номер`,
+            languageSelect: `Выберите ваш язык`
         },
         french: {
             instructions: `Choisissez un numéro 1-10`,
             low: `trop bas!`,
             equals: `tu l'as eu!`,
-            high: `trop haut!`
+            high: `trop haut!`,
+            placeholder: `Entrer un nombre`,
+            languageSelect: `Choisissez votre langue`
         },
         portuguese: {
             instructions: `Escolha um número 1-10`,
             low: `muito baixo!`,
             equals: `você entendeu!`,
-            high: `muito alto!`
+            high: `muito alto!`,
+            placeholder: `Insira numeros`,
+            languageSelect: `Selecione sua lingua`
         },
         japanese: {
             instructions: `1〜10の数字を選ぶ`,
             low: `低すぎる！`,
             equals: `あなたはそれを持っています！`,
-            high: `高すぎる！`
+            high: `高すぎる！`,
+            placeholder: `番号を入力`,
+            languageSelect: `あなたが使う言語を選んでください`
         },
         italian: {
             instructions: `Scegli un numero 1-10`,
             low: `troppo basso!`,
             equals: `avete capito bene!`,
-            high: `troppo alto!`
+            high: `troppo alto!`,
+            placeholder: `Inserisci numero`,
+            languageSelect: `Seleziona la tua lingua`,
         }
     }
 };
