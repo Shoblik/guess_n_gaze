@@ -149,7 +149,6 @@ let view = {
         $('.rightColumn').empty();
     },
     historyColumn: function(userGuess) {
-        console.log('user guess ', userGuess);
         let userGuessStr = userGuess.toString();
         if (userGuess > 1 && userGuess <= 10 && userGuessStr.split('.').length === 1) {
             let numberDiv = $('<div>').css({
@@ -157,7 +156,6 @@ let view = {
                 width: '100%',
                 backgroundImage: 'url(../images/'+ userGuess +'_0.svg)',
             }).addClass('numberDiv');
-            console.log('url(../images/'+ userGuess +'.svg)');
             $('.rightColumn').prepend(numberDiv);
         }
     },
